@@ -1,0 +1,580 @@
+/* ── Base resets (from common.css) ── */
+html {
+    scroll-behavior: smooth !important;
+    width: 100vw !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+i { width: auto !important; }
+
+body, div, nav, svg, section {
+    will-change: background-color;
+    transition: background-color 350ms ease;
+}
+
+svg > path {
+    will-change: color;
+    transition: color 350ms ease;
+}
+
+/* ── Scroll animations ── */
+@keyframes scroll {
+    0%   { transform: translateY(1rem); opacity: 0; }
+    10%  { transform: translateY(0);    opacity: 1; }
+    100% { transform: translateY(0);    opacity: 0; }
+}
+
+.mouse-animation > .scroll-animation {
+    width: 0.25rem;
+    height: 0.625rem;
+    animation: scroll 3s linear infinite;
+}
+
+.mouse-animation {
+    height: 2rem;
+    box-sizing: content-box;
+}
+
+@keyframes spin-icon {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.spin-button { animation: spin-icon 5s linear infinite; }
+
+@keyframes love {
+    50% { transform: translateY(1rem); }
+}
+
+.animate-love { animation: love 5s ease-in-out infinite; }
+
+/* ══════════════════════════════════════════════════════
+   RECEPTION THEME  —  Midnight · Champagne Gold · Coral
+   A warm, festive evening celebration palette
+   ══════════════════════════════════════════════════════ */
+
+:root {
+    --rc-gold:       #C8960C;
+    --rc-gold-lite:  #F0D060;
+    --rc-gold-mid:   #DBA830;
+    --rc-champagne:  #FAF0DC;
+    --rc-warm-ivory: #FFFDF5;
+    --rc-coral:      #D9643A;
+    --rc-coral-lite: #F08060;
+    --rc-midnight:   #1A1535;
+    --rc-navy:       #1E2B55;
+    --rc-deep:       #12102A;
+    --rc-border:     rgba(200, 150, 12, 0.22);
+    --rc-border-glow: rgba(200, 150, 12, 0.45);
+}
+
+/* Base */
+body {
+    background-color: var(--rc-warm-ivory) !important;
+}
+
+html[data-bs-theme="light"] {
+    --bs-body-bg:       var(--rc-warm-ivory);
+    --bs-body-color:    var(--rc-midnight);
+    --bs-secondary-color: rgba(26, 21, 53, 0.55);
+    --bs-border-color:  var(--rc-border);
+}
+
+/* ── Section backgrounds ── */
+html[data-bs-theme="light"] .bg-light-dark {
+    background-color: var(--rc-champagne) !important;
+    background-image:
+        radial-gradient(ellipse 160px 160px at 0% 0%,   rgba(240,208,96,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 130px 130px at 100% 100%, rgba(217,100,58,0.12) 0%, transparent 70%) !important;
+    background-repeat: no-repeat !important;
+}
+
+html[data-bs-theme="light"] .bg-white-black {
+    background-color: var(--rc-warm-ivory) !important;
+    background-image:
+        radial-gradient(ellipse 140px 140px at 100% 0%,  rgba(240,208,96,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 110px 110px at 0%  100%, rgba(217,100,58,0.1) 0%, transparent 70%) !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ── Wave separators ── */
+html[data-bs-theme="light"] .color-theme-svg {
+    color: var(--rc-warm-ivory) !important;
+    background-color: var(--rc-champagne) !important;
+}
+
+/* ── Navbar ── */
+html[data-bs-theme="light"] .navbar {
+    background-color: rgba(255, 253, 245, 0.94) !important;
+    border-color: var(--rc-border) !important;
+    backdrop-filter: blur(0.5rem);
+}
+
+html[data-bs-theme="light"] .nav-link {
+    color: rgba(26, 21, 53, 0.5) !important;
+}
+
+html[data-bs-theme="light"] .nav-link.active,
+html[data-bs-theme="light"] .nav-link:hover {
+    color: var(--rc-gold) !important;
+}
+
+/* ── Overlay ── */
+html[data-bs-theme="light"] .bg-overlay-auto {
+    background-color: rgba(255, 253, 245, 0.82) !important;
+    backdrop-filter: blur(0.4rem);
+}
+
+/* ── Text ── */
+html[data-bs-theme="light"] .text-theme-auto {
+    color: rgba(26, 21, 53, 0.65) !important;
+}
+
+html[data-bs-theme="light"] .text-secondary {
+    color: rgba(26, 21, 53, 0.48) !important;
+}
+
+/* ── Esthetic headings — champagne gold gradient ── */
+html[data-bs-theme="light"] .font-esthetic {
+    background: linear-gradient(135deg, var(--rc-midnight) 0%, var(--rc-gold) 55%, var(--rc-coral) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Couple photo ring ── */
+html[data-bs-theme="light"] .img-center-crop {
+    border-color: var(--rc-gold) !important;
+    box-shadow:
+        0 0 0 5px rgba(200, 150, 12, 0.15),
+        0 0 0 9px rgba(217, 100, 58, 0.08),
+        0 10px 36px rgba(26, 21, 53, 0.14) !important;
+}
+
+/* ── Buttons ── */
+html[data-bs-theme="light"] .btn-outline-auto {
+    --bs-btn-color:               var(--rc-midnight);
+    --bs-btn-border-color:        var(--rc-gold);
+    --bs-btn-hover-color:         #fff;
+    --bs-btn-hover-bg:            var(--rc-gold);
+    --bs-btn-hover-border-color:  var(--rc-gold);
+    --bs-btn-focus-shadow-rgb:    200, 150, 12;
+    --bs-btn-active-color:        #fff;
+    --bs-btn-active-bg:           var(--rc-gold-mid);
+    --bs-btn-active-border-color: var(--rc-gold-mid);
+    --bs-btn-disabled-color:      var(--rc-gold);
+    --bs-btn-disabled-border-color: var(--rc-gold);
+}
+
+html[data-bs-theme="light"] .btn-primary {
+    background: linear-gradient(135deg, var(--rc-gold), var(--rc-coral)) !important;
+    border-color: var(--rc-gold) !important;
+    color: #fff !important;
+}
+
+html[data-bs-theme="light"] .btn-primary:hover,
+html[data-bs-theme="light"] .btn-primary:active {
+    background: linear-gradient(135deg, var(--rc-gold-mid), var(--rc-coral)) !important;
+    border-color: var(--rc-gold-mid) !important;
+}
+
+/* ── Form controls ── */
+html[data-bs-theme="light"] .form-control,
+html[data-bs-theme="light"] .form-select {
+    background-color: rgba(255, 253, 245, 0.9) !important;
+    border-color: rgba(200, 150, 12, 0.3) !important;
+    color: var(--rc-midnight) !important;
+}
+
+html[data-bs-theme="light"] .form-control::placeholder {
+    color: rgba(26, 21, 53, 0.32) !important;
+}
+
+html[data-bs-theme="light"] .form-control:focus,
+html[data-bs-theme="light"] .form-select:focus {
+    border-color: var(--rc-gold) !important;
+    box-shadow: 0 0 0 0.2rem rgba(200, 150, 12, 0.2) !important;
+}
+
+html[data-bs-theme="light"] .form-check-input:checked {
+    background-color: var(--rc-gold) !important;
+    border-color:     var(--rc-gold) !important;
+}
+
+html[data-bs-theme="light"] .form-label {
+    color: var(--rc-midnight) !important;
+}
+
+/* ── Borders ── */
+html[data-bs-theme="light"] .border {
+    border-color: var(--rc-border) !important;
+}
+
+html[data-bs-theme="light"] .shadow {
+    box-shadow: 0 4px 24px rgba(26, 21, 53, 0.08) !important;
+}
+
+/* ── Progress bar ── */
+#progress-bar {
+    background: linear-gradient(90deg, var(--rc-gold), var(--rc-gold-lite)) !important;
+}
+
+/* ── HR dividers ── */
+html[data-bs-theme="light"] hr {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--rc-gold-lite),
+        var(--rc-gold),
+        var(--rc-gold-lite),
+        transparent
+    ) !important;
+    opacity: 0.5 !important;
+}
+
+/* ── Loading & welcome page ── */
+html[data-bs-theme="light"] .loading-page.bg-white-black {
+    background-color: var(--rc-warm-ivory) !important;
+    background-image:
+        radial-gradient(ellipse 200px 200px at 10% 20%, rgba(240,208,96,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 180px 180px at 90% 80%, rgba(217,100,58,0.12) 0%, transparent 70%) !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ── Floating buttons ── */
+html[data-bs-theme="light"] .btn-transparent {
+    background-color: rgba(250, 240, 220, 0.85) !important;
+    border-color: var(--rc-border) !important;
+    color: var(--rc-midnight) !important;
+}
+
+/* ══════════════════
+   UX COMPONENTS
+   ══════════════════ */
+
+/* [1] Countdown */
+.countdown-num {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--rc-midnight), var(--rc-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(26, 21, 53, 0.48);
+    display: block;
+    margin-top: 0.2rem;
+}
+
+@media screen and (max-width: 576px) {
+    .countdown-num   { font-size: 2rem; }
+    .countdown-label { font-size: 0.6rem; }
+}
+
+/* [2] Section ornament */
+.section-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin: 0.1rem auto 1.5rem;
+    color: var(--rc-gold);
+    font-size: 0.65rem;
+    opacity: 0.7;
+}
+
+.section-ornament::before,
+.section-ornament::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 1px;
+}
+
+.section-ornament::before {
+    background: linear-gradient(90deg, transparent, var(--rc-gold));
+}
+
+.section-ornament::after {
+    background: linear-gradient(90deg, var(--rc-gold), transparent);
+}
+
+/* [3] Event cards */
+.event-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    background: rgba(250, 240, 220, 0.55);
+    border: 1px solid var(--rc-border);
+    border-left: 3px solid var(--rc-gold);
+    border-radius: 0.85rem;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    box-shadow: 0 2px 12px rgba(26, 21, 53, 0.05);
+}
+
+.event-card-icon {
+    width: 2.75rem;
+    min-width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rc-gold), var(--rc-coral));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.event-card-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--rc-midnight);
+    margin: 0 0 0.1rem;
+}
+
+.event-card-time {
+    font-size: 0.82rem;
+    color: var(--rc-gold);
+    font-weight: 600;
+    margin: 0;
+}
+
+.event-card-detail {
+    font-size: 0.8rem;
+    color: rgba(26, 21, 53, 0.5);
+    margin: 0;
+}
+
+/* [4] Open Invitation button */
+.btn-invite {
+    background: linear-gradient(135deg, var(--rc-gold) 0%, var(--rc-coral) 100%);
+    color: #fff !important;
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    padding: 0.7rem 2.2rem !important;
+    animation: invite-pulse 2.8s ease-in-out infinite;
+    transition: transform 0.2s ease;
+}
+
+.btn-invite:hover,
+.btn-invite:active {
+    background: linear-gradient(135deg, var(--rc-gold-mid) 0%, #B04020 100%) !important;
+    color: #fff !important;
+    transform: scale(1.04);
+}
+
+@keyframes invite-pulse {
+    0%, 100% { box-shadow: 0 4px 18px rgba(200, 150, 12, 0.35); }
+    50%       { box-shadow: 0 6px 28px rgba(200, 150, 12, 0.6), 0 0 0 8px rgba(200, 150, 12, 0.07); }
+}
+
+/* [5] Festive tag / badge */
+.festive-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rc-gold), var(--rc-coral));
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 1.1rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px rgba(200, 150, 12, 0.3);
+    margin-bottom: 1rem;
+}
+
+/* [6] Sparkle stars ── for the festive note card */
+.note-card {
+    background: rgba(250, 240, 220, 0.7);
+    border: 1px solid var(--rc-border-glow);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(200, 150, 12, 0.08);
+}
+
+.note-card p {
+    font-size: 0.9rem;
+    color: rgba(26, 21, 53, 0.7);
+    margin-bottom: 0;
+    line-height: 1.7;
+}
+
+/* [7] Home section special hero */
+.hero-section {
+    background: linear-gradient(160deg, var(--rc-midnight) 0%, var(--rc-navy) 55%, #2D2050 100%) !important;
+    min-height: 100dvh;
+    position: relative;
+}
+
+.hero-section .font-esthetic {
+    background: linear-gradient(135deg, var(--rc-gold-lite) 0%, var(--rc-gold) 50%, var(--rc-coral-lite) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.hero-section p,
+.hero-section small {
+    color: rgba(250, 240, 220, 0.75) !important;
+}
+
+.hero-section .btn-outline-auto {
+    --bs-btn-color: var(--rc-gold-lite) !important;
+    --bs-btn-border-color: var(--rc-gold) !important;
+    --bs-btn-hover-color: var(--rc-midnight) !important;
+    --bs-btn-hover-bg: var(--rc-gold) !important;
+    color: var(--rc-gold-lite) !important;
+    border-color: var(--rc-gold) !important;
+}
+
+.hero-section .scroll-animation {
+    background-color: rgba(250, 240, 220, 0.5) !important;
+}
+
+.hero-section .mouse-animation {
+    border-color: rgba(250, 240, 220, 0.4) !important;
+}
+
+/* Stars/sparkles in hero */
+.star-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(240, 208, 96, 0.6);
+    animation: twinkle var(--duration, 3s) ease-in-out infinite var(--delay, 0s);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(0.8); }
+    50%       { opacity: 0.9;  transform: scale(1.1); }
+}
+
+/* [8] Scroll helpers */
+svg {
+    display: block;
+    line-height: 0;
+    shape-rendering: geometricPrecision;
+    backface-visibility: hidden;
+}
+
+.svg-wrapper {
+    overflow: hidden !important;
+    transform: translateZ(0) !important;
+}
+
+.no-gap-bottom {
+    margin-bottom: -0.75rem !important;
+}
+
+.with-scrollbar {
+    scrollbar-width: auto !important;
+    -ms-overflow-style: auto !important;
+}
+
+.font-esthetic {
+    font-family: 'Sacramento', cursive !important;
+}
+
+.img-center-crop {
+    width: 13rem;
+    height: 13rem;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.loading-page {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1056;
+}
+
+.width-loading {
+    width: 25%;
+}
+
+@media screen and (max-width: 992px) {
+    .width-loading { width: 50%; }
+}
+
+@media screen and (max-width: 576px) {
+    .width-loading { width: 75%; }
+}
+
+.cursor-pointer { cursor: pointer; }
+
+.bg-cover-home {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
+}
+
+/* ── Stars (gold hearts in hero) ── */
+html[data-bs-theme="light"] svg[data-class="animate-love"] {
+    color: var(--rc-gold) !important;
+}
+
+/* Dark theme passthrough (keep defaults) */
+html[data-bs-theme="dark"] .bg-light-dark  { background-color: rgb(var(--bs-dark-rgb)); }
+html[data-bs-theme="dark"] .bg-white-black { background-color: rgb(var(--bs-black-rgb)); }
+html[data-bs-theme="dark"] .color-theme-svg {
+    color: rgb(0, 0, 0);
+    background-color: var(--bs-dark);
+}
+html[data-bs-theme="dark"] .navbar {
+    background-color: rgba(var(--bs-dark-rgb), 0.75) !important;
+    backdrop-filter: blur(0.5rem);
+}
+html[data-bs-theme="dark"] .nav-link        { color: rgba(var(--bs-white-rgb), 0.5); }
+html[data-bs-theme="dark"] .bg-overlay-auto { background-color: rgba(var(--bs-black-rgb), 0.5); backdrop-filter: blur(0.25rem); }
+html[data-bs-theme="dark"] .text-theme-auto { color: rgb(var(--bs-light-rgb)); }
+html[data-bs-theme="dark"] .bg-theme-auto   { background-color: var(--bs-gray-800); }
+html[data-bs-theme="dark"] .btn-transparent {
+    background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
+    backdrop-filter: blur(0.5rem);
+}
+html[data-bs-theme="dark"] .btn-outline-auto {
+    --bs-btn-color: var(--bs-light);
+    --bs-btn-border-color: var(--bs-light);
+    --bs-btn-hover-color: var(--bs-black);
+    --bs-btn-hover-bg: var(--bs-light);
+    --bs-btn-hover-border-color: var(--bs-light);
+    --bs-btn-focus-shadow-rgb: var(--bs-light-rgb);
+    --bs-btn-active-color: var(--bs-black);
+    --bs-btn-active-bg: var(--bs-light);
+    --bs-btn-active-border-color: var(--bs-light);
+    --bs-btn-disabled-color: var(--bs-light);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--bs-light);
+}
